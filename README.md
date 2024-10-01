@@ -5,7 +5,7 @@ your very own calendar.
 ## Usage
 
 You can create images per month or year. The images are in SVG format 
-([Scalable Vector Format](https://en.wikipedia.org/wiki/SVG)). They have the A4 aspect ratio (same as A3, A5, etc.),
+([Scalable Vector Graphics Format](https://en.wikipedia.org/wiki/SVG)). They have the A4 aspect ratio (same as A3, A5, etc.),
 making the images ideal for printing.
 
 ## How to generate a calendar
