@@ -13,11 +13,11 @@ making the images ideal for printing.
 From the command line, just run:
 
 ```bash
-generate_calendar.sh
+./generate_calendar.sh
 ```
 
 This will generate a calendar for the current year. For generating other years, or one month only, you can
-specify parameters, here's how to print january 2038:
+specify additional parameters. Here's how to print january 2038:
 
 ```bash
 ./generate_calendar.sh  --year=2038 --month=1
@@ -34,11 +34,11 @@ By default, the calendar pages are in English, using US holidays. To change this
 ./generate_calendar.sh --language=nl --country=NL
 ```
 
-Resulting in image like this:
+Resulting in an image like this:
 
 ![Alt text](img/dutch.svg)
 
-For full options consult the help:
+To see all options, consult the help page:
 
 ```bash
 ./generate_calendar.sh --help
