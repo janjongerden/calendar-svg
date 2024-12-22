@@ -1,12 +1,12 @@
 package nl.janjongerden
 
 import de.focus_shift.jollyday.core.HolidayCalendar
-import de.focus_shift.jollyday.core.HolidayCalendar.UNITED_STATES
 import de.focus_shift.jollyday.core.HolidayManager
 import de.focus_shift.jollyday.core.ManagerParameters
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.util.*
+
 
 class Events(private val year: Int, countryCode: String, private val locale: Locale) {
 
@@ -30,7 +30,8 @@ class Events(private val year: Int, countryCode: String, private val locale: Loc
                 return country
             }
         }
-        return UNITED_STATES
+        val validCodes = HolidayCalendar.entries.joinToString(separator = ", ") { it.id }
+        throw IllegalArgumentException("No country found for code '${countryCode}'. Expecting one of: ${validCodes})")
     }
 
     private fun keyFromDate(day: LocalDate): String {

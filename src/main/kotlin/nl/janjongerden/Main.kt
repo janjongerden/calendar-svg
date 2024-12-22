@@ -19,12 +19,14 @@ class Main : CliktCommand() {
     private val output: String by option().default("/tmp").help("The output directory where the images will be saved.")
 
     override fun run() {
+        val countryCode = country.uppercase()
+        logger.info { "Using language '${language}' and country code '${countryCode}'" }
         val months = month?.let { listOf(it) } ?: (1..12).toList()
 
         for (m in months) {
             val currentMonth = Month(year, m)
             logger.info { "Generating calendar for ${currentMonth.name()} $year in directory '$output'" }
-            Calendar(currentMonth, Locale.forLanguageTag(language), country).generate(output)
+            Calendar(currentMonth, Locale.forLanguageTag(language), countryCode).generate(output)
         }
     }
 }
