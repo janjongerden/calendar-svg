@@ -42,6 +42,7 @@ class Calendar(
     fun generate(outputDirectory: String) {
 
         val svg = SVG.svg(true) {
+            viewBox = "0 0 $pageWidth $pageHeight"
             height = "$pageHeight"
             width = "$pageWidth"
             style {
