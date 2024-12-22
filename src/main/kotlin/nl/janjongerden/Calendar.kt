@@ -1,20 +1,24 @@
 package nl.janjongerden
 
+import io.github.oshai.kotlinlogging.KotlinLogging
 import svglib.RenderMode
 import svglib.elements.Container
 import svglib.elements.SVG
+import java.io.File
 import java.io.FileWriter
 import java.text.DateFormatSymbols
 import java.text.DecimalFormat
 import java.util.*
 import kotlin.collections.ArrayList
 
+private val logger = KotlinLogging.logger {}
+
 
 class Calendar(
     private val month: Month,
     private val displayLanguageLocale: Locale = Locale.forLanguageTag("en"),
     countryCode: String = "NL"
-        ) {
+) {
 
     private var events: Events
 
@@ -60,6 +64,10 @@ class Calendar(
     private fun getFileName(outputDirectory: String): String {
         val paddedMonth = DecimalFormat("00").format(month.month)
         val dir = outputDirectory.dropLastWhile{it == '/'}
+        if (!File(dir).exists()) {
+            logger.info { "File '${dir}' doesn't exist, trying to create..." }
+            File("${dir}/").mkdirs()
+        }
 
         return "${dir}/cal-${paddedMonth}-${month.year}.svg"
     }
