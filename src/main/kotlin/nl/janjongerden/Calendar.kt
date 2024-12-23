@@ -66,7 +66,7 @@ class Calendar(
         val paddedMonth = DecimalFormat("00").format(month.month)
         val dir = outputDirectory.dropLastWhile{it == '/'}
         if (!File(dir).exists()) {
-            logger.info { "File '${dir}' doesn't exist, trying to create..." }
+            logger.info { "Directory '${dir}' doesn't exist, creating..." }
             File("${dir}/").mkdirs()
         }
 

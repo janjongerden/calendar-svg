@@ -1,5 +1,5 @@
 # Calendar-svg
-Generate calendar images per month on A4 format, including national holidays. Ideal for printing
+Generate calendar images per month on A4 format, including national holidays and week numbers. Ideal for printing
 your very own calendar.
 
 ## Usage
@@ -43,6 +43,17 @@ To see all options, consult the help page:
 ```bash
 ./generate_calendar.sh --help
 ```
+
+## Printing the calendar pages
+
+An easy way to print the pages is with a webbrowser. Open one of the `.svg` files you just generated in the browser, and
+press <ctrl+p> to open the print dialog. As the image is already in A4 format, the aspect ratio should be fine for 
+printing to any [A-series paper size](https://en.wikipedia.org/wiki/Paper_size#International_standard_paper_sizes).
+Make sure you to select _landscape printing_ mode and set _'Margins'_ to _none_. For me, the option 
+_'Fit to page width'_ does not cover the whole page in landscape mode, so I manually set the scale to `154%` for
+full page coverage (ymmmv).
+
+![Alt text](img/2025_printed.jpeg)
 
 ## Acknowledgements
 
