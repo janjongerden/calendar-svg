@@ -5,6 +5,7 @@ import de.focus_shift.jollyday.core.HolidayManager
 import de.focus_shift.jollyday.core.ManagerParameters
 import java.time.DayOfWeek
 import java.time.LocalDate
+import java.time.Year
 import java.util.*
 
 
@@ -14,7 +15,7 @@ class Events(private val year: Int, countryCode: String, private val locale: Loc
 
     init {
         val holidayManager: HolidayManager = HolidayManager.getInstance(ManagerParameters.create(getCountry(countryCode)))
-        val holidays = holidayManager.getHolidays(year)
+        val holidays = holidayManager.getHolidays(Year.of(year))
         for (holiday in holidays) {
             val translatedHolidayName = holiday.getDescription(locale)
             val eventNames = events.getOrPut(keyFromDate(holiday.date)) { HashSet() }
